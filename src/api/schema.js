@@ -1,20 +1,7 @@
 import { buildSchema } from 'graphql';
+import fs from 'fs';
+import path from 'path';
 
-export default buildSchema(
-  `
-  type Step {}
-  type Query {
-    todo(id: ID!): Todo!
-    todos: [Todo]!
-    completedTodos: [Todo]!
-    uncompletedTodos: [Todo]!
-  }
-  type Todo {}
+const schema = fs.readFileSync(path.resolve(__dirname, 'schema.gql'), 'utf-8');
 
-  type Mutation {
-    createTodo(input: Todo!): Todo
-    updateTodo(id: ID!, input: Todo!): 
-    deleteTodo(id: ID!): ID
-  }
-  `,
-);
+export default buildSchema(schema);
