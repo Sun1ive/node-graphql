@@ -6,4 +6,4 @@ const app = express();
 
 app.use('/api/v1/', api);
 
-app.listen(8080, () => console.log('app listen', fake));
+app.listen(8080, () => console.log('app listen'));
